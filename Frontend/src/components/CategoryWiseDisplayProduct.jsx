@@ -40,7 +40,7 @@ const CategoryWiseDisplayProduct = ({id, name}) => {
     async function fetchProductByCategory(){
         try {
           setLoading(true);    
-          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/product//get-product-by-category`, {
+          const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/product/get-product-by-category`, {
             method : "Post",
             headers : {
               'authorization' : localStorage.getItem('accessToken'),

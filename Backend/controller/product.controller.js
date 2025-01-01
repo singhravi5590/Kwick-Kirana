@@ -127,9 +127,6 @@ export async function getProductByCategoryAndSubCategory(req, res){
     try {
         let {categoryId, subCategoryId, page, limit} = req.body;
 
-
-        
-
         if(!categoryId, !subCategoryId){
             return res.status(400).json({
                 message : "Provide a Category Id and Subcategory Id",
