@@ -8,7 +8,7 @@ import ForgotPassword from "../Pages/ForgotPassword";
 import OtpVerify from "../Pages/OtpVerify";
 import ResetPassword from "../Pages/ResetPassword";
 import UserMenuMobile from "../Pages/UserMenuMobile";
-import Dashboard from "../layout/Dashboard";
+// import Dashboard from "../layout/Dashboard";
 import Profile from "../Pages/Profile";
 import Address from "../Pages/Address";
 import ProductAdmin from "../Pages/ProductAdmin";
@@ -22,15 +22,20 @@ import DisplayCart from "../Pages/DisplayCart";
 import Checkout from "../Pages/Checkout";
 import Success from "../Pages/Success";
 import CancelPayment from "../Pages/CancelPayment";
+import ErrorComponent from "../components/ErrorComponent";
+import { lazy, Suspense } from "react";
+
+const Dashboard = lazy(() => import("../layout/Dashboard"))
 
 const router = createBrowserRouter([
     {
         path : '/',
         element : <App/>,
+        errorElement : <ErrorComponent/>,
         children : [
             {
                 path : "",
-                element : <Home/>
+                element : <Home/>,
             },
             {
                 path : "/search",
@@ -62,16 +67,12 @@ const router = createBrowserRouter([
             },
             {
                 path : '/dashboard',
-                element : <Dashboard/>,
+                element : <Suspense> <Dashboard/> </Suspense>,
                 children : [
                     {
                         path : 'profile',
                         element : <Profile/>
                     },
-                    // {
-                    //     path : 'orders',
-                    //     element : <Orders/>
-                    // },
                     {
                         path : 'address',
                         element : <Address/>

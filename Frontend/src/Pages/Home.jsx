@@ -11,8 +11,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   function handleRedirectProductListPage(id, name){
-    const subCategory = allsubCategory.find((sub) => {
-      const filterData = sub.category.some(c => {
+    const subCategory = allsubCategory?.find((sub) => {
+      const filterData = sub?.category.some(c => {
         return c._id == id
       })
       return filterData ? true : null

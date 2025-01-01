@@ -26,7 +26,7 @@ function App() {
   async function fetchCategory(){
     try {
       dispatch(setLoading(true))
-      const response = await fetch("http://localhost:8080/api/category/get", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category/get`, {
         method : "GET",
         headers : {
             'Content-Type' : 'application/json'
@@ -46,7 +46,7 @@ function App() {
 
   async function fetchSubCategory(){
     try {
-      const response = await fetch("http://localhost:8080/api/subcategory/get", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/subcategory/get`, {
         method : "Post",
         headers : {
             'Content-Type' : 'application/json'
@@ -64,7 +64,7 @@ function App() {
 
   async function fetchAddress(){
     try {
-      const response = await fetch('http://localhost:8080/api/address/get-address', {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/address/get-address`, {
         method : "Get",
         headers : {
           'content-type' : 'application/json',
@@ -100,7 +100,7 @@ function App() {
       <Footer/>
       <Toaster/>
       {
-        (location.pathname !== '/checkout') && (<CartMobile/>)
+        // (location.pathname !== '/checkout') && (<CartMobile/>)
       }
       
     </GlobalProvider>
