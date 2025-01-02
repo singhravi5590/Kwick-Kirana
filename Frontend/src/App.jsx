@@ -100,7 +100,7 @@ function App() {
       <Footer/>
       <Toaster/>
       {
-        // (location.pathname !== '/checkout') && (<CartMobile/>)
+        (location.pathname !== '/checkout') && (<CartMobile/>)
       }
       
     </GlobalProvider>
